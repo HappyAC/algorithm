@@ -1,4 +1,4 @@
-// 2018-03-23 thewinds 
+// 2018-03-23 thewinds
 // [题目] PAT A-1007
 // 求最大子序列的和
 // [考点] 处理子序列问题
@@ -13,7 +13,7 @@
 // 和的时候末尾位置是隐含保留的,而其实位置丢失了,因此要将起始位置保存下来。
 // 😃 继续努力
 
-#include<cstdio>
+#include <cstdio>
 
 using namespace std;
 
@@ -22,44 +22,57 @@ using namespace std;
 int nums[ARRAY_CAP];
 int numsLen;
 
-void findMaxSubSequence(){
-    int startNum=0,endNum=0,startIndex=0;
-    int sumHere=0,maxSum=0;
+void findMaxSubSequence()
+{
+    int startNum = 0, endNum = 0, startIndex = 0;
+    int sumHere = 0, maxSum = 0;
 
-    for (int i=0;i<numsLen;i++){
+    for (int i = 0; i < numsLen; i++)
+    {
         int numHere = nums[i];
 
-        if (sumHere+numHere>0){
-            if(sumHere==0){
-                startIndex=i;
+        if (sumHere + numHere > 0)
+        {
+            if (sumHere == 0)
+            {
+                startIndex = i;
             }
-            sumHere+=numHere;
-            if (sumHere>maxSum){
-                maxSum=sumHere;
-                endNum=numHere;
-                startNum=nums[startIndex];
+            sumHere += numHere;
+            if (sumHere > maxSum)
+            {
+                maxSum = sumHere;
+                endNum = numHere;
+                startNum = nums[startIndex];
             }
-        }else{
-            sumHere=0;
+        }
+        else
+        {
+            sumHere = 0;
         }
     }
 
-    printf("%d %d %d",maxSum,startNum,endNum);
+    printf("%d %d %d", maxSum, startNum, endNum);
 }
 
-int main(){
-    bool allNeg=true;
-    scanf("%d",&numsLen);
-    for(int i=0;i<numsLen;i++) {
-        scanf("%d",&nums[i]);
-        if(nums[i]>=0){
-            allNeg=false;
+int main()
+{
+    bool allNeg = true;
+    scanf("%d", &numsLen);
+    for (int i = 0; i < numsLen; i++)
+    {
+        scanf("%d", &nums[i]);
+        if (nums[i] >= 0)
+        {
+            allNeg = false;
         }
     }
-    if(allNeg){
-        printf("%d %d %d",0,nums[0],nums[numsLen-1]);        
-    }else{
-       findMaxSubSequence();
+    if (allNeg)
+    {
+        printf("%d %d %d", 0, nums[0], nums[numsLen - 1]);
+    }
+    else
+    {
+        findMaxSubSequence();
     }
     return 0;
 }
