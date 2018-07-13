@@ -1,5 +1,5 @@
 #include<cstdio>
-
+#define print_list(list,len) printList(list,len,#list)
 // 翻转顺序表（8）
 void reverseList(int list[],int start,int end){
     int mid = (start+end)/2;
@@ -81,8 +81,10 @@ int main(int n,char **args){
     printList(a,5,"move right:");
     int b[]={0,5,5,3,5,7,5,5};
     int c[]={0,5,5,3,5,1,5,7};
-    printList(b,8,"b:");
-    printList(c,8,"c:");
+    // printList(b,8,"b:");
+    // printList(c,8,"c:");
+    print_list(b,8);
+    print_list(c,8);
 
     printf("marjority of b: %d\n",findMajority(b,8));
     printf("marjority of c: %d\n",findMajority(c,8));
