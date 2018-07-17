@@ -115,23 +115,28 @@ void listDistinct(LinkList &list)
     list.len -= cnt;
 }
 
-void mergeOrderList(LinkList &la,LinkList &lb){
-    ListNode *p1=la.head->next;
-    ListNode *p2=lb.head->next;
-    ListNode *last=la.head;
-    while(p1&&p2){
-        if(p1->data<p2->data){
-            last->next=p1;
-            last=p1;
-            p1=p1->next;
-        }else{
-            last->next=p2;
-            last=p2;
-            p2=p2->next;
+void mergeOrderList(LinkList &la, LinkList &lb)
+{
+    ListNode *p1 = la.head->next;
+    ListNode *p2 = lb.head->next;
+    ListNode *last = la.head;
+    while (p1 && p2)
+    {
+        if (p1->data < p2->data)
+        {
+            last->next = p1;
+            last = p1;
+            p1 = p1->next;
+        }
+        else
+        {
+            last->next = p2;
+            last = p2;
+            p2 = p2->next;
         }
     }
-    last->next=(p1==NULL)?p2:p1;
-    la.len=la.len+lb.len;
+    last->next = (p1 == NULL) ? p2 : p1;
+    la.len = la.len + lb.len;
     delete lb.head;
 }
 
@@ -370,22 +375,95 @@ void q12()
 // 合并有序链表
 void q13()
 {
-    LinkList listA=newLinkList();
-    LinkList listB=newLinkList();
-    
-    for(int i = 1; i <= 5; i++)
+    LinkList listA = newLinkList();
+    LinkList listB = newLinkList();
+
+    for (int i = 1; i <= 5; i++)
     {
-        listInsert(listA,i,i*2-1);
+        listInsert(listA, i, i * 2 - 1);
     }
-    for(int i = 1; i <= 3; i++)
+    for (int i = 1; i <= 3; i++)
     {
-        listInsert(listB,i,i*2);
+        listInsert(listB, i, i * 2);
     }
-    
+
     printList(listA);
     printList(listB);
-    mergeOrderList(listA,listB);
+    mergeOrderList(listA, listB);
     printList(listA);
+}
+
+// 求有序链表交集
+void q15()
+{
+    LinkList listA = newLinkList();
+    LinkList listB = newLinkList();
+
+    for (int i = 1; i <= 5; i++)
+    {
+        listInsert(listA, i, i);
+    }
+    for (int i = 1; i <= 7; i++)
+    {
+        listInsert(listB, i, i+3);        
+    }
+    //listInsert(listB, 1,);
+
+    printList(listA);
+    printList(listB);
+
+    ListNode *pa=listA.head;
+    ListNode *pb=listB.head->next;
+    listA.len=0;
+    while(pa->next&&pb){
+        if(pa->next->data>pb->data){
+            pb=pb->next;
+        }else if(pa->next->data<pb->data){
+            ListNode *tmp=pa->next;
+            pa->next=tmp->next;
+            delete tmp;
+        }else{
+            pa=pa->next;
+            pb=pb->next;
+            listA.len++;
+        }
+    }
+    
+    if (pb==NULL) {
+        pa->next=NULL;
+    }
+    // free掉A和B
+    printList(listA);
+
+}
+
+int findLastK(ListNode *list,int k){
+    ListNode *p1=list->next,*p2=list->next;
+    while(p2&&k>0){
+        p2=p2->next;
+        k--;
+    }
+    if(k!=0) return 0;
+    while(p2){
+        p1=p1->next;
+        p2=p2->next;
+    }
+    printf(": %d\n",p1->data);
+    return 1;
+}
+
+// 求倒数第K个元素
+void q21(){
+    LinkList list = newLinkList();
+    for (int i = 1; i <= 10; i++)
+    {
+        listInsert(list, i, i);
+    }
+    
+    for(int k = 1; k <= 15; k++)
+    {
+        printf("find last %d result %d\n",k,findLastK(list.head,k));
+    }
     
 }
 int main(int argc, char const *argv[])
@@ -406,5 +484,7 @@ int main(int argc, char const *argv[])
     do_question(q9);
     do_question(q12);
     do_question(q13);
+    do_question(q15);    
+    do_question(q21);    
     return 0;
 }
