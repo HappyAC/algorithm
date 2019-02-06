@@ -1,5 +1,5 @@
 #include<stdio.h>
-#define N 65535
+#define N 65535 // 这里 N!=301，陷阱
 #define K 100
 // 标记数组
 int marks[N]={0};
@@ -17,7 +17,7 @@ void checkNumAndMark(int num){
         }
         // the key to solving this problem
         marks[num]=marks[num]+1;
-        //printf("%d ",n);
+        printf("%d ",num);
     }
 }
 
