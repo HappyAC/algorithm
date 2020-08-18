@@ -26,15 +26,15 @@
 - [x] [copy-list-with-random-pointer](https://leetcode-cn.com/problems/copy-list-with-random-pointer/)
 
 ## Stack&Queue
-- [ ] [min-stack](https://leetcode-cn.com/problems/min-stack/)
-- [ ] [evaluate-reverse-polish-notation](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
-- [ ] [decode-string](https://leetcode-cn.com/problems/decode-string/)
-- [ ] [binary-tree-inorder-traversal](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
-- [ ] [clone-graph](https://leetcode-cn.com/problems/clone-graph/)
-- [ ] [number-of-islands](https://leetcode-cn.com/problems/number-of-islands/)
-- [ ] [largest-rectangle-in-histogram](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
-- [ ] [implement-queue-using-stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
-- [ ] [01-matrix](https://leetcode-cn.com/problems/01-matrix/)
+- [x] [min-stack](https://leetcode-cn.com/problems/min-stack/)
+- [x] [evaluate-reverse-polish-notation](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+- [x] [decode-string](https://leetcode-cn.com/problems/decode-string/)
+- [x] [binary-tree-inorder-traversal](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+- [x] [clone-graph](https://leetcode-cn.com/problems/clone-graph/)
+- [x] [number-of-islands](https://leetcode-cn.com/problems/number-of-islands/)
+- [x] [largest-rectangle-in-histogram](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+- [x] [implement-queue-using-stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+- [x] [01-matrix](https://leetcode-cn.com/problems/01-matrix/)
 
 ## Binary
 - [ ] [single-number](https://leetcode-cn.com/problems/single-number/)
